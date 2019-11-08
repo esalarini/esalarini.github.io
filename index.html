@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt pt-br">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eduardo Salarini - Estudante de Física cortejando Python - Nova Friburgo/RJ</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./static/css/main.css">
+
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+</head>
+<body>
+    <header class="container-fluid">
+        <div class="header-myconfig col">
+            <div class="title">
+                    <div class="col-1">
+                        </div>
+                        <div class="col d-flex ">
+                    <div class="title-eduardo">
+                        <div class="tmeio col">
+                            <h1>Luís Eduardo C. Salarini</h1>
+                        </div>
+                        <div class="tdireita col">
+                            <h1>Estudante de Física e amante Python</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 teste">
+                        <img id="testando" class="foto-eduardo img-thumbnail" src="./static/images/avatar.jpg">
+                </div>
+                <div class="col-1">
+            </div>
+        </div>
+
+    </header>
+    <main class="container-fluid main-myconfig">
+        <div class="principal">
+        <div class="cabeca">
+                <div class="row p-3">                  
+                    <div class="col justify-content-center">
+                            <nav class="nav navbar-light flex-column flex-sm-row">
+                                    <a class="flex-sm-fill navbar-light text-sm-center nav-link active" href="./index.html">HOME</a>
+                                    <a class="flex-sm-fill navbar-light text-sm-center nav-link" href="#"></a>
+                                    <a class="flex-sm-fill navbar-light text-sm-center nav-link" href="#"></a>
+                                    <a class="flex-sm-fill navbar-light text-sm-center nav-link" href="#"></a>
+                                    <a class="flex-sm-fill navbar-light text-sm-center nav-link" href="#"></a>
+                                    <a class="flex-sm-fill navbar-light text-sm-center nav-link" href="./gitpages.html">MyGitPages</a>
+                                    <a class="flex-sm-fill navbar-light text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Contato</a>
+                                  </nav>
+                        </div>
+                    </div>
+                </div>
+        <div class="cabeca">
+                <div class="col d-flex p-2">                    
+                        <pre  style='color:#000000;'><span style='color:#800000; font-weight:bold; '>print</span> <span style='color:#808030; '>(</span><span style='color:#0000e6; '>"Este é meu blog pessoal e aqui guardarei conteúdo que eu quiser sem criterio!"</span><span style='color:#808030; '>)</span></pre>
+                </div>
+        </div>
+ 
+        </div>
+        <div class="principal">
+            <div class="postagem">
+               <div class="titulo-data">
+                   <div class="titulo">
+                        <h3>Criando um servidor/cliente Socket</h3>
+                    </div>
+                <div class="data">
+                       <h3><datagrid>08/04/2019 às 11:50</datagrid></h3>
+                </div>
+                </div>
+                <br>
+                <h6> SERVIDOR</h6>
+                <hr>
+<pre style='color:#000000;'>
+<span style='color:#800000; font-weight:bold; '>import</span> socket
+                    
+HOST <span style='color:#808030; '>=</span> <span style='color:#0000e6; '>'0.0.0.0'</span>                 <span style='color:#696969; '>#endereço do servidor</span>
+PORT <span style='color:#808030; '>=</span> <span style='color:#008c00; '>50007</span>              <span style='color:#696969; '># porta do servidor</span>
+s <span style='color:#808030; '>=</span> socket<span style='color:#808030; '>.</span>socket<span style='color:#808030; '>(</span>socket<span style='color:#808030; '>.</span>AF_INET<span style='color:#808030; '>,</span> socket<span style='color:#808030; '>.</span>SOCK_STREAM<span style='color:#808030; '>)</span>
+s<span style='color:#808030; '>.</span>bind<span style='color:#808030; '>(</span><span style='color:#808030; '>(</span>HOST<span style='color:#808030; '>,</span> PORT<span style='color:#808030; '>)</span><span style='color:#808030; '>)</span>
+s<span style='color:#808030; '>.</span>listen<span style='color:#808030; '>(</span><span style='color:#008c00; '>1</span><span style='color:#808030; '>)</span>
+conn<span style='color:#808030; '>,</span> addr <span style='color:#808030; '>=</span> s<span style='color:#808030; '>.</span>accept<span style='color:#808030; '>(</span><span style='color:#808030; '>)</span>
+<span style='color:#800000; font-weight:bold; '>print</span> (<span style='color:#0000e6; '>'Connected by'</span><span style='color:#808030; '>,</span> addr)
+<span style='color:#800000; font-weight:bold; '>while</span> <span style='color:#008c00; '>1</span><span style='color:#808030; '>:</span>
+data <span style='color:#808030; '>=</span> conn<span style='color:#808030; '>.</span>recv<span style='color:#808030; '>(</span><span style='color:#008c00; '>1024</span><span style='color:#808030; '>)</span>
+<span style='color:#800000; font-weight:bold; '>if</span> <span style='color:#800000; font-weight:bold; '>not</span> data<span style='color:#808030; '>:</span> <span style='color:#800000; font-weight:bold; '>break</span>
+conn<span style='color:#808030; '>.</span>sendall<span style='color:#808030; '>(</span>data<span style='color:#808030; '>)</span>
+conn<span style='color:#808030; '>.</span>close<span style='color:#808030; '>(</span><span style='color:#808030; '>)</span>
+</pre>
+<br>
+<h6>CLIENTE</h6>
+<hr>
+
+<pre style='color:#000000;'>
+<span style='color:#800000; font-weight:bold; '>import</span> socket
+    
+HOST <span style='color:#808030; '>=</span> <span style='color:#0000e6; '>''</span>    <span style='color:#696969; '>#endereço do serviço</span>
+PORT <span style='color:#808030; '>=</span> <span style='color:#008c00; '>50007</span>              <span style='color:#696969; '>#porta do servidor</span>
+s <span style='color:#808030; '>=</span> socket<span style='color:#808030; '>.</span>socket<span style='color:#808030; '>(</span>socket<span style='color:#808030; '>.</span>AF_INET<span style='color:#808030; '>,</span> socket<span style='color:#808030; '>.</span>SOCK_STREAM<span style='color:#808030; '>)</span>
+s<span style='color:#808030; '>.</span>connect<span style='color:#808030; '>(</span><span style='color:#808030; '>(</span>HOST<span style='color:#808030; '>,</span> PORT<span style='color:#808030; '>)</span><span style='color:#808030; '>)</span>
+s<span style='color:#808030; '>.</span>sendall<span style='color:#808030; '>(</span><span style='color:#0000e6; '>'Hello, world'</span><span style='color:#808030; '>)</span>
+data <span style='color:#808030; '>=</span> s<span style='color:#808030; '>.</span>recv<span style='color:#808030; '>(</span><span style='color:#008c00; '>1024</span><span style='color:#808030; '>)</span>
+s<span style='color:#808030; '>.</span>close<span style='color:#808030; '>(</span><span style='color:#808030; '>)</span>
+<span style='color:#800000; font-weight:bold; '>print</span> (<span style='color:#0000e6; '>'Received'</span><span style='color:#808030; '>,</span> <span style='color:#400000; '>repr</span><span style='color:#808030; '>(</span>data))
+</pre>
+                </div>
+        </div>
+        <div class="principal">
+                <div class="postagem">
+                   <div class="titulo-data">
+                       <div class="titulo">
+                            <h3>Usando o PIP para instalar pacotes no Python</h3>
+                        </div>
+                    <div class="data">
+                           <h3><datagrid>08/03/2019 às 11:10</datagrid></h3>
+                    </div>
+                    </div>
+                        <p>Habitualmente usamos:</p>
+                        <code style='color:#000000;'>pip install "nome do pacote"</code>
+                        <p>Mas há casos que podemos usar:</p>
+                        <code style='color:#000000;'>python -m pip install "nome do pacote"</code>
+                    </div>
+        </div>
+        <div class="principal">
+            <div class="postagem">
+                <div class="titulo-data">
+                    <div class="titulo">
+                        <h3>Lendo, manipulando e devolvendo um arquivo com PANDAS</h3>
+                    </div>
+                    <div class="data">
+                            <h3><datagrid>07/03/2019 às 19:42</datagrid></h3>
+                    </div>
+                </div>
+<pre style='color:#000000;'>
+<span style='color:#696969; '># -*- coding: utf-8 -*-</span>
+<span style='color:#696969; '>"""</span>
+<span style='color:#696969; '>Created on Tue Feb 26 10:18:54 2019</span>
+<span style='color:#696969; '>@author: Eduardo Salarini</span>
+<span style='color:#696969; '>"""</span>
+                    
+<span style='color:#800000; font-weight:bold; '>import</span> pandas <span style='color:#800000; font-weight:bold; '>as</span> pd
+<span style='color:#800000; font-weight:bold; '>import</span> numpy <span style='color:#800000; font-weight:bold; '>as</span> np
+                    
+nomeArquivo<span style='color:#808030; '>=</span><span style='color:#400000; '>input</span><span style='color:#808030; '>(</span><span style='color:#0000e6; '>'Digite o nome do arquivo txt:'</span><span style='color:#808030; '>)</span>
+tipoArquivo<span style='color:#808030; '>=</span><span style='color:#400000; '>input</span><span style='color:#808030; '>(</span><span style='color:#0000e6; '>'Digite o formato do arquivo:'</span><span style='color:#808030; '>)</span>
+                    
+arquivo <span style='color:#808030; '>=</span> pd<span style='color:#808030; '>.</span>read_csv<span style='color:#808030; '>(</span>nomeArquivo<span style='color:#44aadd; '>+</span><span style='color:#0000e6; '>'.'</span><span style='color:#44aadd; '>+</span>tipoArquivo<span style='color:#808030; '>,</span> sep<span style='color:#808030; '>=</span><span style='color:#0000e6; '>'</span><span style='color:#0f69ff; '>\t</span><span style='color:#0000e6; '>'</span><span style='color:#808030; '>)</span>
+colunacoord<span style='color:#808030; '>=</span> arquivo<span style='color:#808030; '>.</span>COORD
+                    
+vetornumpy <span style='color:#808030; '>=</span> np<span style='color:#808030; '>.</span>asarray<span style='color:#808030; '>(</span>colunacoord<span style='color:#808030; '>)</span>
+                    
+<span style='color:#696969; '>"""</span>
+<span style='color:#696969; '>~aqui ficaria a função ou o procedimento que você quer fazer no arquivo~</span>
+<span style='color:#696969; '>"""</span>
+                    
+<span style='color:#696969; '>#reescrevendo com as mudanças</span>
+arquivo<span style='color:#808030; '>.</span>COORD<span style='color:#808030; '>=</span>vetor
+                    
+<span style='color:#696969; '>#devolvendo um arquivo xlsx com o mesmo nome e acrescentando "-convertido"</span>
+arquivo<span style='color:#808030; '>.</span>to_excel<span style='color:#808030; '>(</span>nomeArquivo<span style='color:#44aadd; '>+</span><span style='color:#0000e6; '>'-convertido.xlsx'</span><span style='color:#808030; '>,</span> index<span style='color:#808030; '>=</span><span style='color:#074726; '>False</span><span style='color:#808030; '>)</span>
+
+</pre>
+            </div>
+    </div>
+        <div class="principal">
+            <div class="postagem">
+                <div class="titulo-data">
+                    <div class="titulo">
+                        <h3>Integral Definida</h3>
+                    </div>
+                    <div class="data">
+                            <h3><datagrid>07/03/2019 às 19:13</datagrid></h3>
+                    </div>
+                </div>
+
+<pre style='color:#000000;'>
+<span style='color:#696969; '>"""</span>
+<span style='color:#696969; '>Created on Mon Feb 25 11:04:07 2019</span>
+<span style='color:#696969; '>@author: Eduardo Salarini</span>
+<span style='color:#696969; '>"""</span>
+<span style='color:#800000; font-weight:bold; '>import</span> numpy <span style='color:#800000; font-weight:bold; '>as</span> np
+<span style='color:#800000; font-weight:bold; '>import</span> matplotlib<span style='color:#808030; '>.</span>pyplot <span style='color:#800000; font-weight:bold; '>as</span> plt
+<span style='color:#800000; font-weight:bold; '>import</span> math <span style='color:#800000; font-weight:bold; '>as</span> mt
+                   
+a<span style='color:#808030; '>=</span><span style='color:#400000; '>float</span><span style='color:#808030; '>(</span><span style='color:#400000; '>input</span><span style='color:#808030; '>(</span><span style='color:#0000e6; '>'Entre com o primeiro valor do intervalo fechado:'</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span>
+b<span style='color:#808030; '>=</span><span style='color:#400000; '>float</span><span style='color:#808030; '>(</span><span style='color:#400000; '>input</span><span style='color:#808030; '>(</span><span style='color:#0000e6; '>'Entre com o segundo valor do intervalo fechado:'</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span>
+                    
+                    
+<span style='color:#800000; font-weight:bold; '>print</span><span style='color:#808030; '>(</span><span style='color:#0000e6; '>'</span><span style='color:#0f69ff; '>\n</span><span style='color:#0000e6; '>Calculando a area no intervalo ['</span><span style='color:#808030; '>,</span>a<span style='color:#808030; '>,</span><span style='color:#0000e6; '>','</span><span style='color:#808030; '>,</span>b<span style='color:#808030; '>,</span><span style='color:#0000e6; '>']'</span><span style='color:#808030; '>)</span>
+                   
+<span style='color:#800000; font-weight:bold; '>def</span> funcao<span style='color:#808030; '>(</span>x<span style='color:#808030; '>)</span><span style='color:#808030; '>:</span>
+    <span style='color:#800000; font-weight:bold; '>return</span> x<span style='color:#44aadd; '>**</span><span style='color:#008c00; '>3</span>
+                    
+<span style='color:#800000; font-weight:bold; '>def</span> integra<span style='color:#808030; '>(</span>a<span style='color:#808030; '>,</span>b<span style='color:#808030; '>)</span><span style='color:#808030; '>:</span>
+    n<span style='color:#808030; '>=</span><span style='color:#008c00; '>1000000</span>
+    area<span style='color:#808030; '>=</span><span style='color:#008c00; '>0</span>
+    vetor_x<span style='color:#808030; '>=</span>np<span style='color:#808030; '>.</span>zeros<span style='color:#808030; '>(</span><span style='color:#808030; '>(</span>n<span style='color:#44aadd; '>+</span><span style='color:#008c00; '>1</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span>
+    vetor_y<span style='color:#808030; '>=</span>np<span style='color:#808030; '>.</span>zeros<span style='color:#808030; '>(</span><span style='color:#808030; '>(</span>n<span style='color:#44aadd; '>+</span><span style='color:#008c00; '>1</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span>
+                        
+    vetor_x<span style='color:#808030; '>[</span><span style='color:#008c00; '>0</span><span style='color:#808030; '>]</span><span style='color:#808030; '>=</span>a
+    vetor_x<span style='color:#808030; '>[</span>n<span style='color:#808030; '>]</span><span style='color:#808030; '>=</span>b
+    vetor_y<span style='color:#808030; '>[</span><span style='color:#008c00; '>0</span><span style='color:#808030; '>]</span><span style='color:#808030; '>=</span>a<span style='color:#44aadd; '>**</span><span style='color:#008c00; '>2</span>
+    vetor_y<span style='color:#808030; '>[</span>n<span style='color:#808030; '>]</span><span style='color:#808030; '>=</span>b<span style='color:#44aadd; '>**</span><span style='color:#008c00; '>2</span>
+    u<span style='color:#808030; '>=</span><span style='color:#008c00; '>1</span>   
+    delta<span style='color:#808030; '>=</span><span style='color:#808030; '>(</span>b<span style='color:#44aadd; '>-</span>a<span style='color:#808030; '>)</span><span style='color:#44aadd; '>/</span><span style='color:#808030; '>(</span>n<span style='color:#44aadd; '>*</span><span style='color:#008000; '>1.0</span><span style='color:#808030; '>)</span>
+                        
+<span style='color:#800000; font-weight:bold; '>for</span> u <span style='color:#800000; font-weight:bold; '>in</span> <span style='color:#400000; '>range</span><span style='color:#808030; '>(</span><span style='color:#400000; '>len</span><span style='color:#808030; '>(</span>vetor_x<span style='color:#808030; '>)</span><span style='color:#808030; '>)</span><span style='color:#808030; '>:</span>
+    vetor_x<span style='color:#808030; '>[</span>u<span style='color:#808030; '>]</span><span style='color:#808030; '>=</span>a<span style='color:#44aadd; '>+</span><span style='color:#808030; '>(</span>u<span style='color:#44aadd; '>*</span>delta<span style='color:#808030; '>)</span>
+    vetor_y<span style='color:#808030; '>[</span>u<span style='color:#808030; '>]</span><span style='color:#808030; '>=</span>funcao<span style='color:#808030; '>(</span>vetor_x<span style='color:#808030; '>[</span>u<span style='color:#808030; '>]</span><span style='color:#808030; '>)</span>        
+    u<span style='color:#44aadd; '>+</span><span style='color:#808030; '>=</span><span style='color:#008c00; '>1</span>
+                            
+<span style='color:#800000; font-weight:bold; '>for</span> i <span style='color:#800000; font-weight:bold; '>in</span> <span style='color:#400000; '>range</span><span style='color:#808030; '>(</span><span style='color:#400000; '>len</span><span style='color:#808030; '>(</span>vetor_x<span style='color:#808030; '>)</span><span style='color:#44aadd; '>-</span><span style='color:#008c00; '>1</span><span style='color:#808030; '>)</span><span style='color:#808030; '>:</span>
+    area<span style='color:#44aadd; '>+</span><span style='color:#808030; '>=</span><span style='color:#808030; '>(</span>vetor_x<span style='color:#808030; '>[</span>i<span style='color:#44aadd; '>+</span><span style='color:#008c00; '>1</span><span style='color:#808030; '>]</span><span style='color:#44aadd; '>-</span>vetor_x<span style='color:#808030; '>[</span>i<span style='color:#808030; '>]</span><span style='color:#808030; '>)</span><span style='color:#44aadd; '>*</span>np<span style='color:#808030; '>.</span>absolute<span style='color:#808030; '>(</span>vetor_y<span style='color:#808030; '>[</span>i<span style='color:#44aadd; '>+</span><span style='color:#008c00; '>1</span><span style='color:#808030; '>]</span><span style='color:#808030; '>)</span>
+    plt<span style='color:#808030; '>.</span>plot<span style='color:#808030; '>(</span>vetor_x<span style='color:#808030; '>,</span>vetor_y<span style='color:#808030; '>,</span><span style='color:#0000e6; '>"b-"</span><span style='color:#808030; '>)</span>
+
+<span style='color:#800000; font-weight:bold; '>return</span> <span style='color:#808030; '>(</span>area<span style='color:#808030; '>)</span>
+                                        
+areaf<span style='color:#808030; '>=</span>integra<span style='color:#808030; '>(</span>a<span style='color:#808030; '>,</span>b<span style='color:#808030; '>)</span>
+<span style='color:#800000; font-weight:bold; '>print</span> <span style='color:#808030; '>(</span><span style='color:#0000e6; '>'A area da função no intervalo ['</span><span style='color:#808030; '>,</span>a<span style='color:#808030; '>,</span><span style='color:#0000e6; '>','</span><span style='color:#808030; '>,</span>b<span style='color:#808030; '>,</span><span style='color:#0000e6; '>'] é de aproximadamente de'</span><span style='color:#808030; '>,</span>areaf<span style='color:#808030; '>)</span>
+</pre>
+                    
+                
+            </div>
+        </div>
+        <div class="principal">
+            <div class="postagem">
+               <div class="titulo-data">
+                   <div class="titulo">
+                        <h3>GIT Comandos</h3>
+                    </div>
+                <div class="data">
+                       <h3><datagrid>07/03/2019 às 13:25</datagrid></h3>
+                </div>
+                </div>
+
+                    <p><i>cd [endereço]</i> ou clique em <i>GIT Bash Here</i> com o botão direito na pasta.</p>
+                    <p> echo "# blog" >> README.md</p>
+                    <p>git init</p>
+                    <p>git add README.md</p>
+                    <p>git commit -m "first commit"</p>
+                    <p>git remote add origin https://github.com/esalarini/blog.git</p>
+                    <p>git push -u origin master</p>
+                </div>
+        </div>
+         
+    </main>
+    <script src="/teste.js"></script>
+ 
+</body>
+</html>
